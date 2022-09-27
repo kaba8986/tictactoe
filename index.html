@@ -8,15 +8,18 @@
   <script src="script.js"></script>
   <title>Tic Tac Toe</title>
 </head>
-<body>
+<body onload="chooseIcons()">
   <img id="gameover" src="./img/game-over.png" alt="">
+  <p id="winner-output">player one win the game</p>
   <button id="new-game" onclick="restartGame()">New Game</button>
   <div id="player-panel" class="player-panel">
     <div id="player-1">
-      <img src="./img/cross.png">Player 1
+      <img class="color-1" src="./img/icons/virus.svg">
+      <p class="p-color-1">Player 1</p>
     </div>
     <div class="player-inactive" id="player-2">
-      <img src="./img/circle.png">Player 2
+      <img class="color-2" src="./img/icons/firstaid.svg">
+      <p class="p-color-2">Player 2</p>
     </div>
   </div>
 
@@ -34,44 +37,44 @@
   <table>
       <tr>
       <td onclick="fillShape(0)">
-        <img id="circle-0" class="shape dis-none" src="./img/circle.png">
-        <img id="cross-0" class="shape dis-none" src="./img/cross.png">
+        <img id="p1-icon-0" class="shape shape-1 dis-none" src="">
+        <img id="p2-icon-0" class="shape shape-2 dis-none" src="">
       </td>
       <td onclick="fillShape(1)">
-        <img id="circle-1" class="shape dis-none" src="./img/circle.png">
-        <img id="cross-1" class="shape dis-none" src="./img/cross.png">
+        <img id="p1-icon-1" class="shape shape-1  dis-none" src="./img/circle.png">
+        <img id="p2-icon-1" class="shape shape-2  dis-none" src="./img/cross.png">
       </td>
       <td onclick="fillShape(2)">
-        <img id="circle-2" class="shape dis-none" src="./img/circle.png">
-        <img id="cross-2" class="shape dis-none" src="./img/cross.png">
+        <img id="p1-icon-2" class="shape shape-1  dis-none" src="./img/circle.png">
+        <img id="p2-icon-2" class="shape shape-2  dis-none" src="./img/cross.png">
       </td>
     </tr>
     <tr>
       <td onclick="fillShape(3)">
-        <img id="circle-3" class="shape dis-none" src="./img/circle.png">
-        <img id="cross-3" class="shape dis-none" src="./img/cross.png">
+        <img id="p1-icon-3" class="shape shape-1  dis-none" src="./img/circle.png">
+        <img id="p2-icon-3" class="shape shape-2  dis-none" src="./img/cross.png">
       </td>
       <td onclick="fillShape(4)">
-        <img id="circle-4" class="shape dis-none" src="./img/circle.png">
-        <img id="cross-4" class="shape dis-none" src="./img/cross.png">
+        <img id="p1-icon-4" class="shape shape-1  dis-none" src="./img/circle.png">
+        <img id="p2-icon-4" class="shape shape-2  dis-none" src="./img/cross.png">
       </td>
       <td onclick="fillShape(5)">
-        <img id="circle-5" class="shape dis-none" src="./img/circle.png">
-        <img id="cross-5" class="shape dis-none" src="./img/cross.png">
+        <img id="p1-icon-5" class="shape shape-1  dis-none" src="./img/circle.png">
+        <img id="p2-icon-5" class="shape shape-2  dis-none" src="./img/cross.png">
       </td>
     </tr>
     <tr>
       <td onclick="fillShape(6)">
-        <img id="circle-6" class="shape dis-none" src="./img/circle.png">
-        <img id="cross-6" class="shape dis-none" src="./img/cross.png">
+        <img id="p1-icon-6" class="shape shape-1  dis-none" src="./img/circle.png">
+        <img id="p2-icon-6" class="shape shape-2  dis-none" src="./img/cross.png">
       </td>
       <td onclick="fillShape(7)">
-        <img id="circle-7" class="shape dis-none" src="./img/circle.png">
-        <img id="cross-7" class="shape dis-none" src="./img/cross.png">
+        <img id="p1-icon-7" class="shape shape-1  dis-none" src="./img/circle.png">
+        <img id="p2-icon-7" class="shape shape-2  dis-none" src="./img/cross.png">
       </td>
       <td onclick="fillShape(8)">
-        <img id="circle-8" class="shape dis-none" src="./img/circle.png">
-        <img id="cross-8" class="shape dis-none" src="./img/cross.png">
+        <img id="p1-icon-8" class="shape shape-1  dis-none" src="./img/circle.png">
+        <img id="p2-icon-8" class="shape shape-2  dis-none" src="./img/cross.png">
       </td>
     </tr>
   </table>

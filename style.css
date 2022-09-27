@@ -10,6 +10,7 @@ body {
   align-items: center;
   min-height: 100vh;
   background: black;
+  font-family: 'consolas';
 }
 
 #content {
@@ -40,8 +41,26 @@ body {
   opacity: 0.3;
 }
 
+
+.color-1 {
+  filter: invert(79%) sepia(69%) saturate(1108%) hue-rotate(103deg) brightness(98%) contrast(106%);
+}
+
+.color-2 {
+  filter: invert(16%) sepia(100%) saturate(3245%) hue-rotate(282deg) brightness(110%) contrast(129%)
+}
+
+.p-color-1 {
+  color: #00ffd0;
+}
+
+.p-color-2 {
+  color: #d900ff;
+}
+
 table {
   border-collapse: collapse;
+
 }
 
 tr {
@@ -51,7 +70,7 @@ tr {
 td {
   width: 133px;
   height: 133px;
-  border: 5px solid rgb(255, 255, 255);
+  border: 5px solid #00ffd0;;
   position: relative;
   cursor: pointer;
 }
@@ -85,6 +104,14 @@ td:last-child {
   transform: translate(-50%, -50%);
 }
 
+.shape-1 {
+  filter: invert(79%) sepia(69%) saturate(1108%) hue-rotate(103deg) brightness(98%) contrast(106%);
+}
+
+.shape-2 {
+  filter: invert(16%) sepia(100%) saturate(3245%) hue-rotate(282deg) brightness(110%) contrast(129%)
+}
+
 .dis-none {
   display: none;
 }
@@ -96,6 +123,7 @@ td:last-child {
   background-color: rgba(255, 0, 0, 0.7);
   transform: scaleX(0.0);
   transition: transform 225ms ease-in-out;
+  z-index: 10000;
 }
 
 .make-vertical {
@@ -111,6 +139,19 @@ td:last-child {
   display: none;
   animation: opacity 2500ms ease-in-out;
 }
+
+#winner-output {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 0%;
+  transform: translateY(-50%);
+
+  color: white;
+  font-size: 80px;
+  text-align: center;
+}
+
 
 @keyframes opacity {
   from {

@@ -1,10 +1,20 @@
 let fields = [];
-let currentShape = 'cross';
+let currentShape = 'one';
 let gameOver = false;
+let playerOne;
+let playerTwo;
+
+
+function chooseIcons() {
+  for(let i = 0; i < 9; i++){
+    document.getElementById(`p1-icon-${i}`).src = `./img/icons/virus.svg`;
+    document.getElementById(`p2-icon-${i}`).src = `./img/icons/firstaid.svg`;
+  }
+}
 
 function restartGame() {
   gameOver = false;
-  currentShape = 'cross';
+  currentShape = 'one';
 
   document.getElementById('gameover').style.opacity = '0';
   document.getElementById('gameover').style.display = 'none';
@@ -26,10 +36,10 @@ function fillShape(id) {
 
   if(!fields[id] && !gameOver) {
     fields[id] = currentShape;
-    if(currentShape == 'cross') {
-      currentShape = 'circle';
+    if(currentShape == 'two') {
+      currentShape = 'one';
     } else {
-      currentShape = 'cross';
+      currentShape = 'two';
     }
     draw();
     checkForWin();
@@ -38,12 +48,12 @@ function fillShape(id) {
 
 function draw() {
   for(let i = 0; i < fields.length; i++) {
-    if(fields[i] == 'circle') {
-      document.getElementById(`circle-${i}`).classList.remove('dis-none');
+    if(fields[i] == 'one') {
+      document.getElementById(`p1-icon-${i}`).classList.remove('dis-none');
     } 
 
-    if(fields[i] == 'cross') {
-      document.getElementById(`cross-${i}`).classList.remove('dis-none');
+    if(fields[i] == 'two') {
+      document.getElementById(`p2-icon-${i}`).classList.remove('dis-none');
     } 
   }
   changePlayer();
@@ -98,10 +108,10 @@ function checkForWin() {
   }
   if(winner) {
     gameOver = true;
-    /*
+    
     setTimeout(gameOverScreen, 1400);
     setTimeout(newGameScreen, 4000);
-    */
+    
   }
 }
 
@@ -114,14 +124,14 @@ function resetLines() {
 
 function resetShapes() {
   for(let i = 0; i < 9; i++) {
-    document.getElementById(`circle-${i}`).classList.add('dis-none');
-    document.getElementById(`cross-${i}`).classList.add('dis-none');
+    document.getElementById(`p1-icon-${i}`).classList.add('dis-none');
+    document.getElementById(`p2-icon-${i}`).classList.add('dis-none');
   }
 }
 
 
 function gameOverScreen() {
-    document.getElementById('gameover').style.opacity = '1';
+    document.getElementById('gameover').style.opacity = '0.1';
     document.getElementById('gameover').style.display = 'block';
     document.getElementById('content').style.display = 'none';
     document.getElementById('player-panel').style.display = 'none';
