@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -182,5 +183,65 @@ td:last-child {
 
 #new-game:hover {
   background: rgb(255, 123, 0);
+}
+
+#choose-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.choose-box {
+  background: black;
+  width: 500px;
+  height: 400px;
+  margin: 0 20px;
+  padding: 20px;
+}
+
+#choose-player-1 {
+  border: 5px solid #00ffd0;
+  color: #00ffd0;
+}
+
+#choose-player-2 {
+  border: 5px solid #d900ff;
+  color: #d900ff;
+}
+
+.choose-box h2 {
+  padding-bottom: 30px;
+}
+
+.icon-box {
+  display: flex;
+  justify-content: left;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+#icon-box-1 img {
+  filter: invert(79%) sepia(69%) saturate(1108%) hue-rotate(103deg) brightness(98%) contrast(106%);
+}
+
+#icon-box-1 img:hover {
+  filter: invert(27%) sepia(88%) saturate(2284%) hue-rotate(155deg) brightness(97%) contrast(106%);
+}
+
+#icon-box-2 img {
+  filter: invert(16%) sepia(100%) saturate(3245%) hue-rotate(282deg) brightness(110%) contrast(129%)
+}
+
+#icon-box-2 img:hover {
+  filter: invert(75%) sepia(40%) saturate(990%) hue-rotate(211deg) brightness(100%) contrast(100%);
+}
+
+.icons-preview {
+
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
 }
 

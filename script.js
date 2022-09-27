@@ -1,3 +1,4 @@
+let icons = ['apple', 'bananas', 'beer', 'car', 'circle', 'cloud', 'computer', 'dog', 'drink', 'earth', 'firstaid', 'glasses', 'moon', 'music', 'palm', 'ship', 'smiley', 'square', 'star', 'sun', 'tv', 'virus'];
 let fields = [];
 let currentShape = 'one';
 let gameOver = false;
@@ -12,12 +13,25 @@ function chooseIcons() {
   }
 }
 
+function fillIconBox() {
+  let box1 = document.getElementById('icon-box-1');
+  let box2 = document.getElementById('icon-box-2');
+  box1.innerHTML = '';
+  box2.innerHTML = '';
+  for(let i = 0; i < icons.length; i++) {
+    box1.innerHTML += /*html*/ `<img class="icons-preview" src="./img/icons/${icons[i]}.svg">`
+    box2.innerHTML += /*html*/ `<img class="icons-preview" src="./img/icons/${icons[i]}.svg">`
+  }
+
+}
+
 function restartGame() {
   gameOver = false;
   currentShape = 'one';
 
   document.getElementById('gameover').style.opacity = '0';
   document.getElementById('gameover').style.display = 'none';
+  document.getElementById('winner-output').style.display = 'none';
   document.getElementById('new-game').style.display = 'none';
   document.getElementById('content').style.display = 'block';
   document.getElementById('player-panel').style.display = 'flex';
@@ -140,5 +154,6 @@ function gameOverScreen() {
 function newGameScreen() {
   document.getElementById('new-game').style.opacity = '1';
   document.getElementById('new-game').style.display = 'block';
+  document.getElementById('winner-output').style.display = 'block';
 }
 

@@ -9,10 +9,26 @@
   <title>Tic Tac Toe</title>
 </head>
 <body onload="chooseIcons()">
+
+<!------------------------ CHOOSE ICON --------------------------->
+<div id="choose-icon">
+  <div class="choose-box" id="choose-player-1">
+    <h2>PLAYER 1 - choose your icon</h2>
+    <div class="icon-box" id="icon-box-1"></div>
+  </div>
+  <div class="choose-box" id="choose-player-2">
+    <h2>PLAYER 2 - choose your icon</h2>
+    <div class="icon-box" id="icon-box-2"></div>
+  </div>
+</div>
+
+<!------------------------ GAME OVER --------------------------->
   <img id="gameover" src="./img/game-over.png" alt="">
-  <p id="winner-output">player one win the game</p>
+  <p id="winner-output" class="dis-none">player one win the game</p>
   <button id="new-game" onclick="restartGame()">New Game</button>
-  <div id="player-panel" class="player-panel">
+
+<!------------------------ PLAYER SCREEN --------------------------->
+  <div id="player-panel" class="player-panel dis-none">
     <div id="player-1">
       <img class="color-1" src="./img/icons/virus.svg">
       <p class="p-color-1">Player 1</p>
@@ -23,7 +39,8 @@
     </div>
   </div>
 
-<div id="content">
+<!------------------------ GAME SCREEN --------------------------->
+<div id="content" class="dis-none">
   <div id="line-1" class="horizontal-line" style="top: 15.5%; left: 7%; "></div>
   <div id="line-2" class="horizontal-line" style="top: 49%; left: 7%"></div>
   <div id="line-3" class="horizontal-line" style="top: 83%; left: 7%"></div>
