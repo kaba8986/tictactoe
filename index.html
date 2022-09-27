@@ -9,7 +9,9 @@
   <title>Tic Tac Toe</title>
 </head>
 <body>
-  <div class="player-panel">
+  <img id="gameover" src="./img/game-over.png" alt="">
+  <button id="new-game" onclick="restartGame()">New Game</button>
+  <div id="player-panel" class="player-panel">
     <div id="player-1">
       <img src="./img/cross.png">Player 1
     </div>
@@ -18,19 +20,19 @@
     </div>
   </div>
 
-  <div class="horizontal-line" style="top: 387px;"></div>
-  <div class="horizontal-line" style="top: 527px;"></div>
-  <div class="horizontal-line" style="top: 666px;"></div>
-  <div class="vertical-line" style="top: 352px; left: 140px;"></div>
-  <div class="vertical-line" style="top: 352px; left: 281px;"></div>
-  <div class="vertical-line" style="top: 352px; left: 421px;"></div>
-  <div class="diagonal-line" style="top: 322px; left: 282px;"></div>
-  <div class="more-diagonal" style="top: 321px; left: 280px;"></div>
-
-
-
+<div id="content">
+  <div id="line-1" class="horizontal-line" style="top: 15.5%; left: 7%; "></div>
+  <div id="line-2" class="horizontal-line" style="top: 49%; left: 7%"></div>
+  <div id="line-3" class="horizontal-line" style="top: 83%; left: 7%"></div>
+  <div id="line-4" class="horizontal-line make-vertical" style="top: 49%; left: -27.5%"></div>
+  <div id="line-5" class="horizontal-line make-vertical" style="top: 49%; left: 6%"></div>
+  <div id="line-6" class="horizontal-line make-vertical" style="top: 49%; left: 40%"></div>
+  <div id="line-7" class="horizontal-line" style="top: 50%; left: 7%; transform: rotate(45deg) scaleX(0.0);"></div>
+  <div id="line-8" class="horizontal-line" style="top: 50%; left: 5%; transform: rotate(-45deg) scaleX(0.0);"></div>
+  <!-- <div id="line-8" class="horizontal-line" style="top: 201px; left: 28px; transform: rotate(-45deg) scaleX(0.0);"></div> -->
+  
   <table>
-    <tr>
+      <tr>
       <td onclick="fillShape(0)">
         <img id="circle-0" class="shape dis-none" src="./img/circle.png">
         <img id="cross-0" class="shape dis-none" src="./img/cross.png">
@@ -73,5 +75,7 @@
       </td>
     </tr>
   </table>
+</div>
+
 </body>
 </html>
