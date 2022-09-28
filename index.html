@@ -8,7 +8,7 @@
   <script src="script.js"></script>
   <title>Tic Tac Toe</title>
 </head>
-<body onload="init()">
+<body onload="newGame()">
 
 <!------------------------ START SCREEN --------------------------->
 <div id="choose-icon" class="">
@@ -34,21 +34,22 @@
     </div>
   </div>
 </div>
-<button class="button" id="start-new-game" onclick="startGame()">Start Game</button>
+<button class="button" id="start-new-game" onclick="reloadGame()">Start Game</button>
 
 <!------------------------ GAME OVER --------------------------->
-  <img id="gameover" src="./img/game-over.png" alt="">
+  <img class="dis-none" id="gameover" src="./img/game-over.png" alt="">
   <p id="winner-output" class="dis-none">player one win the game</p>
-  <button class="button" id="restart-game" onclick="restartGame()">New Game</button>
+  <button class="button dis-none" id="restart-game" onclick="reloadGame()">Restart</button>
+  <button class="button dis-none" id="change-icons" onclick="newGame()">Change Icons</button>
 
 <!------------------------ PLAYER SCREEN --------------------------->
   <div id="player-panel" class="player-panel dis-none">
     <div id="player-1">
-      <img class="color-1" src="./img/icons/virus.svg">
+      <img id="profile-p1" class="color-1" src="./img/icons/virus.svg">
       <p class="p-color-1">Player 1</p>
     </div>
     <div class="player-inactive" id="player-2">
-      <img class="color-2" src="./img/icons/firstaid.svg">
+      <img id="profile-p2" class="color-2" src="./img/icons/firstaid.svg">
       <p class="p-color-2">Player 2</p>
     </div>
   </div>

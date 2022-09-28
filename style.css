@@ -223,7 +223,7 @@ td:last-child {
 }
 
 .dis-none {
-  display: none;
+  display: none !important;
 }
 
 .horizontal-line {
@@ -246,7 +246,6 @@ td:last-child {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
-  display: none;
   animation: opacity 2500ms ease-in-out;
 }
 
@@ -256,7 +255,6 @@ td:last-child {
   top: 50%;
   left: 0%;
   transform: translateY(-50%);
-
   color: white;
   font-size: 80px;
   text-align: center;
@@ -287,12 +285,25 @@ td:last-child {
 
 #restart-game {
   position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+
+}
+
+#change-icons {
+  position: absolute;
   bottom: 10%;
   left: 50%;
   transform: translateX(-50%);
-  display: none;
+
 }
 
 .button:hover {
   background: rgb(255, 123, 0);
+}
+
+#test {
+  color: white;
+
 }

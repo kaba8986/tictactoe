@@ -2,14 +2,80 @@ let icons = ['apple', 'bananas', 'beer', 'car', 'circle', 'cloud', 'computer', '
 let fields = [];
 let currentShape = 'one';
 let gameOver = false;
-let playerOne = 'virus';
-let playerTwo ='firstaid';
+let playerOne;
+let playerTwo;
 
-function init() {
+/************ START GAME *****************/
+
+function newGame() {
+  playerOne = 'virus';
+  playerTwo ='firstaid';
+  resetGame();
   fillIconBox();
+  showStartScreen();
+}
+
+function reloadGame() {
+  resetGame();
+  showGameScreen();
+  setGameIcons();
+}
+
+function resetGame() {
+  gameOver = false;
+  currentShape = 'one';
+  removeEndScreen();
+  resetGameField();
+  fields = [];
+}
+
+/************* HIDE / SHOW SCREENS & ICONS **********************/
+
+function showStartScreen() {
+  document.getElementById('choose-icon').classList.remove('dis-none');
+  document.getElementById('start-new-game').classList.remove('dis-none');
+}
+
+function showGameScreen() {
+  document.getElementById('player-panel').classList.remove('dis-none');
+  document.getElementById('content').classList.remove('dis-none');
+  document.getElementById('choose-icon').classList.add('dis-none');
+  document.getElementById('start-new-game').classList.add('dis-none');
+}
+
+function removeEndScreen() {
+  document.getElementById('gameover').style.opacity = '0';
+  document.getElementById('gameover').classList.add('dis-none');
+  document.getElementById('winner-output').classList.add('dis-none');
+  document.getElementById('restart-game').classList.add('dis-none');
+  document.getElementById('change-icons').classList.add('dis-none');
+}
+
+function gameOverScreen() {
+  document.getElementById('gameover').style.opacity = '0.1';
+  document.getElementById('gameover').classList.remove('dis-none');
+  document.getElementById('content').classList.add('dis-none');
+  document.getElementById('player-panel').classList.add('dis-none');
+}
+
+function newGameScreen() {
+document.getElementById('restart-game').classList.remove('dis-none');
+document.getElementById('change-icons').classList.remove('dis-none');
+document.getElementById('winner-output').classList.remove('dis-none');
+}
+
+function resetGameField() {
+  for(let i = 1; i < 9; i++) {
+    document.getElementById(`line-${i}`).style.transform = 'scale(0)';
+    document.getElementById(`p1-icon-${i}`).classList.add('dis-none');
+    document.getElementById(`p2-icon-${i}`).classList.add('dis-none');
+  }
+    document.getElementById(`p1-icon-0`).classList.add('dis-none');
+    document.getElementById(`p2-icon-0`).classList.add('dis-none');
 }
 
 /************ SET ICON FUNCTIONS *****************/
+
 function fillIconBox() {
   let box1 = document.getElementById('icon-box-1');
   let box2 = document.getElementById('icon-box-2');
@@ -38,40 +104,13 @@ function setGameIcons() {
     document.getElementById(`p1-icon-${i}`).src = `./img/icons/${icon1}.svg`;
     document.getElementById(`p2-icon-${i}`).src = `./img/icons/${icon2}.svg`;
   }
-}
 
-function startGame() {
-  prepareScreens();
-  setGameIcons();
-}
-
-function prepareScreens () {
-  document.getElementById('player-panel').classList.remove('dis-none');
-  document.getElementById('content').classList.remove('dis-none');
-  document.getElementById('choose-icon').style.display = 'none';
-  document.getElementById('start-new-game').classList.add('dis-none');
+  document.getElementById('profile-p1').src = `./img/icons/${icon1}.svg`;
+  document.getElementById('profile-p2').src = `./img/icons/${icon2}.svg`;
 }
 
 
-
-
-function restartGame() {
-  gameOver = false;
-  currentShape = 'one';
-
-  document.getElementById('gameover').style.opacity = '0';
-  document.getElementById('gameover').style.display = 'none';
-  document.getElementById('winner-output').style.display = 'none';
-  document.getElementById('new-game').style.display = 'none';
-  document.getElementById('content').style.display = 'block';
-  document.getElementById('player-panel').style.display = 'flex';
-
-  resetLines();
-  resetShapes();
-  fields = [];
-}
-
-
+/************ DRAWING FUNCTIONS *****************/
 
 function fillShape(id) {
   if(fields[id]) {
@@ -95,13 +134,14 @@ function draw() {
     if(fields[i] == 'one') {
       document.getElementById(`p1-icon-${i}`).classList.remove('dis-none');
     } 
-
     if(fields[i] == 'two') {
       document.getElementById(`p2-icon-${i}`).classList.remove('dis-none');
     } 
   }
   changePlayer();
 }
+
+/************ CHECKING & CHANGING FUNCTIONS *****************/
 
 function changePlayer() {
   document.getElementById('player-1').classList.toggle('player-inactive');
@@ -152,38 +192,10 @@ function checkForWin() {
   }
   if(winner) {
     gameOver = true;
-    
     setTimeout(gameOverScreen, 1400);
     setTimeout(newGameScreen, 4000);
-    
-  }
-}
-
-function resetLines() {
-  for(let i = 1; i < 9; i++) {
-    document.getElementById(`line-${i}`).style.transform = 'scale(0)';
-    console.log('hallo');
-  }
-}
-
-function resetShapes() {
-  for(let i = 0; i < 9; i++) {
-    document.getElementById(`p1-icon-${i}`).classList.add('dis-none');
-    document.getElementById(`p2-icon-${i}`).classList.add('dis-none');
   }
 }
 
 
-function gameOverScreen() {
-    document.getElementById('gameover').style.opacity = '0.1';
-    document.getElementById('gameover').style.display = 'block';
-    document.getElementById('content').style.display = 'none';
-    document.getElementById('player-panel').style.display = 'none';
-}
-
-function newGameScreen() {
-  document.getElementById('new-game').style.opacity = '1';
-  document.getElementById('new-game').style.display = 'block';
-  document.getElementById('winner-output').style.display = 'block';
-}
 
