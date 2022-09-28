@@ -235,7 +235,7 @@ td:last-child {
 
 #icon-box-1 img:hover {
   filter: invert(100%) sepia(2%) saturate(0%) hue-rotate(213deg) brightness(102%) contrast(102%);
-  transform: scale(0.9);
+  /* transform: scale(0.9); */
   transition: 0.2s;
 }
 
@@ -246,8 +246,12 @@ td:last-child {
 
 #icon-box-2 img:hover {
   filter: invert(100%) sepia(2%) saturate(0%) hue-rotate(213deg) brightness(102%) contrast(102%);
-  transform: scale(0.9);
+  /* transform: scale(0.9); */
   transition: 0.2s;
+}
+
+.icon-active {
+  filter: invert(100%) sepia(2%) saturate(0%) hue-rotate(213deg) brightness(102%) contrast(102%);
 }
 
 .icons-preview {
@@ -267,6 +271,7 @@ td:last-child {
   line-height: 70px;
   font-size: 20px;
 }
+
 
 .display-choice p {
   padding-right: 20px;
