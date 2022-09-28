@@ -8,17 +8,23 @@
   <script src="script.js"></script>
   <title>Tic Tac Toe</title>
 </head>
-<body onload="chooseIcons()">
+<body onload="init()">
 
 <!------------------------ CHOOSE ICON --------------------------->
 <div id="choose-icon">
-  <div class="choose-box" id="choose-player-1">
-    <h2>PLAYER 1 - choose your icon</h2>
-    <div class="icon-box" id="icon-box-1"></div>
+  <div id="choose-player-1">
+    <div class="choose-box">
+      <h2>PLAYER 1</h2>
+      <div class="icon-box" id="icon-box-1"></div>
+    </div>
+    <div class="display-choice" id="display-player-1">choose your icon</div>
   </div>
-  <div class="choose-box" id="choose-player-2">
-    <h2>PLAYER 2 - choose your icon</h2>
-    <div class="icon-box" id="icon-box-2"></div>
+  <div id="choose-player-2">
+    <div class="choose-box">
+      <h2>PLAYER 2</h2>
+      <div class="icon-box" id="icon-box-2"></div>
+    </div>
+    <div class="display-choice" id="display-player-2">choose your icon</div>
   </div>
 </div>
 

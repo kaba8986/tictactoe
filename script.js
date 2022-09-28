@@ -5,6 +5,9 @@ let gameOver = false;
 let playerOne;
 let playerTwo;
 
+function init() {
+  fillIconBox();
+}
 
 function chooseIcons() {
   for(let i = 0; i < 9; i++){
