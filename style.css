@@ -29,10 +29,14 @@ body {
   padding: 0;
 }
 
-.choose-box {
+.choose-player-box {
+  width: 470px;
   position: relative;
   background: black;
-  width: 470px;
+
+}
+
+.choose-box {
   padding: 20px;
 }
 
@@ -53,7 +57,7 @@ body {
 .scroll-hint {
   position: absolute;
   top: 28px;
-  left: 140px;
+  right: 15px;
 }
 
 .icon-box {
@@ -64,7 +68,16 @@ body {
   padding: 10px;
   height: 150px;
   overflow: scroll;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.icon-box::-webkit-scrollbar {
+  display: none;
+}
+
+
 
 #choose-player-1 img {
   filter: var(--filter-p1);
@@ -268,6 +281,7 @@ td:last-child {
   color: white;
   font-size: 80px;
   text-align: center;
+  padding: 0 30px;
 }
 
 
@@ -316,4 +330,84 @@ td:last-child {
 #test {
   color: white;
 
+}
+
+
+/************** MEDIA ***************/
+
+@media (max-width: 1024px) {
+  .choose-player-box {
+    width: 370px;
+  }
+}
+
+@media (max-width: 834px) {
+  #choose-icon {
+    flex-direction: column;
+  }
+
+  .choose-player-box {
+    width: 470px;
+  }
+
+  .icon-box {
+    gap: 20px;
+    padding: 8px;
+    height: 130px;
+  }
+}
+
+@media (max-width: 520px) {
+
+  .choose-player-box {
+    width: 330px;
+  }
+
+  .choose-box {
+    padding: 10px;
+  }
+
+  .icon-box {
+    gap: 10px;
+    padding: 0px;
+    height: 120px;
+  }
+
+  .scroll-hint {
+    top: 18px;
+  }
+
+  .display-choice {
+    height: 50px;
+    padding: 0 20px;
+  }
+
+  .display-choice img {
+    width: 40px;
+    height: 40px;
+  }
+
+  #start-new-game {
+    margin-top: 20px;
+  }
+
+  #choose-icon {
+    gap: 20px;
+  }
+
+  .choose-box h2 {
+    padding-bottom: 15px;
+  }
+
+  .player-panel {
+    flex-direction: column;
+    gap: 40px;
+    margin-bottom: 80px;
+  }
+
+  #winner-output {
+    top: 20%;
+    padding: 20px;
+    font-size: 50px;
+  }
 }
