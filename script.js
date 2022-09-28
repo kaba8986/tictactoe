@@ -4,6 +4,10 @@ let currentShape = 'one';
 let gameOver = false;
 let playerOne;
 let playerTwo;
+let audioGameOver = new Audio('gameover.mp3');
+let success = new Audio('success.mp3');
+let menu = new Audio('menu.mp3');
+
 
 /************ START GAME *****************/
 
@@ -23,7 +27,7 @@ function reloadGame() {
 
 function resetGame() {
   gameOver = false;
-  currentShape = 'two';
+  currentShape = 'one';
   removeEndScreen();
   resetGameField();
   fields = [];
@@ -34,6 +38,7 @@ function resetGame() {
 function showStartScreen() {
   document.getElementById('choose-icon').classList.remove('dis-none');
   document.getElementById('start-new-game').classList.remove('dis-none');
+
 }
 
 function showGameScreen() {
@@ -62,6 +67,7 @@ function newGameScreen() {
 document.getElementById('restart-game').classList.remove('dis-none');
 document.getElementById('change-icons').classList.remove('dis-none');
 document.getElementById('winner-output').classList.remove('dis-none');
+success.play();
 }
 
 function resetGameField() {
@@ -193,8 +199,9 @@ function checkForWin() {
   if(winner) {
     gameOver = true;
     whoIsWinner();
+    audioGameOver.play();
     setTimeout(gameOverScreen, 1400);
-    setTimeout(newGameScreen, 4000);
+    setTimeout(newGameScreen, 3500);
   }
 }
 

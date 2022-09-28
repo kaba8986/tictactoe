@@ -246,7 +246,7 @@ td:last-child {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
-  animation: opacity 2500ms ease-in-out;
+  animation: opacity 2000ms ease-in-out;
 }
 
 #winner-output {
