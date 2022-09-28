@@ -30,6 +30,7 @@ body {
 }
 
 .choose-box {
+  position: relative;
   background: black;
   width: 470px;
   padding: 20px;
@@ -49,11 +50,20 @@ body {
   padding-bottom: 30px;
 }
 
+.scroll-hint {
+  position: absolute;
+  top: 28px;
+  left: 140px;
+}
+
 .icon-box {
   display: flex;
   justify-content: left;
   flex-wrap: wrap;
-  gap: 25px;
+  gap: 30px;
+  padding: 10px;
+  height: 150px;
+  overflow: scroll;
 }
 
 #choose-player-1 img {
