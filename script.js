@@ -23,7 +23,7 @@ function reloadGame() {
 
 function resetGame() {
   gameOver = false;
-  currentShape = 'one';
+  currentShape = 'two';
   removeEndScreen();
   resetGameField();
   fields = [];
@@ -192,10 +192,21 @@ function checkForWin() {
   }
   if(winner) {
     gameOver = true;
+    whoIsWinner();
     setTimeout(gameOverScreen, 1400);
     setTimeout(newGameScreen, 4000);
   }
 }
 
+function whoIsWinner() {
+  let output = document.getElementById('winner-output');
+  if(currentShape == 'two') {
+    output.innerHTML = 'player ONE win the game';
+    output.style.color = '#00ffd0';
+  } else {
+    output.innerHTML = 'player TWO win the game';
+    output.style.color = '#d900ff';
+  }
 
+}
 
