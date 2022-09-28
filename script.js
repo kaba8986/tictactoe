@@ -2,30 +2,14 @@ let icons = ['apple', 'bananas', 'beer', 'car', 'circle', 'cloud', 'computer', '
 let fields = [];
 let currentShape = 'one';
 let gameOver = false;
-let playerOne;
-let playerTwo;
+let playerOne = 'virus';
+let playerTwo ='firstaid';
 
 function init() {
   fillIconBox();
 }
 
-function setGameIcons(playerOne, playerTwo) {
-  for(let i = 0; i < 9; i++){
-    document.getElementById(`p1-icon-${i}`).src = `./img/icons/${playerOne}.svg`;
-    document.getElementById(`p2-icon-${i}`).src = `./img/icons/${playerTwo}.svg`;
-  }
-}
-
-function displayIcon(player, icon, index) {
-  console.log(icon);
-  document.getElementById(`final-icon-${player}`).src = `./img/icons/${icon}.svg`;
-  if(player == "p1") {
-    playerOne = `${icon}`;
-  } else {
-    playerTwo = `${icon}`;
-  }
-}
-
+/************ SET ICON FUNCTIONS *****************/
 function fillIconBox() {
   let box1 = document.getElementById('icon-box-1');
   let box2 = document.getElementById('icon-box-2');
@@ -35,8 +19,41 @@ function fillIconBox() {
     box1.innerHTML += /*html*/ `<img class="icons-preview ${icons[i]}" id="${icons[i]}-1" src="./img/icons/${icons[i]}.svg" onclick="displayIcon('p1','${icons[i]}', ${i})">`
     box2.innerHTML += /*html*/ `<img class="icons-preview" ${icons[i]} id="${icons[i]}-2" src="./img/icons/${icons[i]}.svg" onclick="displayIcon('p2','${icons[i]}', ${i})">`
   }
-
 }
+
+function displayIcon(player, icon, index) {
+  document.getElementById(`final-icon-${player}`).src = `./img/icons/${icon}.svg`;
+  if(player == "p1") {
+    playerOne = `${icon}`;
+  } else {
+    playerTwo = `${icon}`;
+  }
+}
+
+function setGameIcons() {
+  let icon1 = playerOne;
+  let icon2 = playerTwo;
+
+  for(let i = 0; i < 9; i++){
+    document.getElementById(`p1-icon-${i}`).src = `./img/icons/${icon1}.svg`;
+    document.getElementById(`p2-icon-${i}`).src = `./img/icons/${icon2}.svg`;
+  }
+}
+
+function startGame() {
+  prepareScreens();
+  setGameIcons();
+}
+
+function prepareScreens () {
+  document.getElementById('player-panel').classList.remove('dis-none');
+  document.getElementById('content').classList.remove('dis-none');
+  document.getElementById('choose-icon').style.display = 'none';
+  document.getElementById('start-new-game').classList.add('dis-none');
+}
+
+
+
 
 function restartGame() {
   gameOver = false;
