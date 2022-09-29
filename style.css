@@ -371,6 +371,10 @@ td:last-child {
   #start-new-game {
     margin-top: 20px;
   }
+
+  #winner-output {
+    font-size: 60px;
+  }
 }
 
 @media (max-width: 520px) {
@@ -461,6 +465,27 @@ tr {
   .horizontal-line {
     width: 265px;
   }
+}
 
+@media (max-width: 327px) {
+  .scroll-hint {
+    top: 72%;
+  }
 
+  .icon-box {
+    height: 70%;
+  }
+
+  #content {
+    width: 270px;
+  }
+
+tr {
+  width: 270px;
+}
+
+  td {
+    width: 90px;
+    height: 90px;
+  }
 }

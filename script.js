@@ -1,12 +1,13 @@
 let icons = ['apple', 'bananas', 'beer', 'car', 'circle', 'cloud', 'computer', 'dog', 'drink', 'earth', 'firstaid', 'glasses', 'moon', 'music', 'palm', 'ship', 'smiley', 'square', 'star', 'sun', 'tv', 'virus'];
 let fields = [];
 let currentShape = 'one';
+let move = 0;
 let gameOver = false;
 let playerOne;
 let playerTwo;
 let audioGameOver = new Audio('gameover.mp3');
 let success = new Audio('success.mp3');
-let menu = new Audio('menu.mp3');
+
 
 
 /************ START GAME *****************/
@@ -28,6 +29,9 @@ function reloadGame() {
 function resetGame() {
   gameOver = false;
   currentShape = 'one';
+  move = 0;
+  document.getElementById('player-1').classList.remove('player-inactive');
+  document.getElementById('player-2').classList.add('player-inactive');
   removeEndScreen();
   resetGameField();
   fields = [];
@@ -67,7 +71,9 @@ function newGameScreen() {
 document.getElementById('restart-game').classList.remove('dis-none');
 document.getElementById('change-icons').classList.remove('dis-none');
 document.getElementById('winner-output').classList.remove('dis-none');
-success.play();
+  if(move != 9) {
+    success.play();
+  } 
 }
 
 function resetGameField() {
@@ -132,6 +138,7 @@ function fillShape(id) {
     }
     draw();
     checkForWin();
+    checkForRemis();
   }
 }
 
@@ -145,6 +152,7 @@ function draw() {
     } 
   }
   changePlayer();
+  move++;
 }
 
 /************ CHECKING & CHANGING FUNCTIONS *****************/
@@ -199,23 +207,42 @@ function checkForWin() {
   
   if(winner) {
     gameOver = true;
+    document.getElementById('player-1').classList.add('player-inactive');
+    document.getElementById('player-2').classList.add('player-inactive');
     whoIsWinner();
     audioGameOver.play();
     setTimeout(gameOverScreen, 1400);
     setTimeout(newGameScreen, 3500);
   }
-  
 }
 
 function whoIsWinner() {
+  let winner = false;
   let output = document.getElementById('winner-output');
   if(currentShape == 'two') {
     output.innerHTML = 'player ONE win the game';
     output.style.color = '#00ffd0';
+    winner = true;
   } else {
     output.innerHTML = 'player TWO win the game';
     output.style.color = '#d900ff';
+    winner = true;
   }
-
+  return winner;
 }
+
+
+function checkForRemis() {
+  if(move == 9) {
+    console.log('REMIS after 9th move');
+    gameOver = true;
+    document.getElementById('player-1').classList.add('player-inactive');
+    document.getElementById('player-2').classList.add('player-inactive');
+    document.getElementById('winner-output').innerHTML = 'nobody loses, everybody is a winner :-)';
+    setTimeout(gameOverScreen, 1400);
+    setTimeout(newGameScreen, 3500);
+  }
+}
+
+
 
