@@ -9,6 +9,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'consolas';
 }
 
 body {
@@ -22,6 +23,15 @@ body {
 }
 
 /************ START SCREEN **************/
+#start-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+}
+
 #choose-icon {
   display: flex;
   justify-content: center;
@@ -193,7 +203,6 @@ body {
 
 table {
   border-collapse: collapse;
-
 }
 
 tr {
@@ -201,7 +210,7 @@ tr {
 }
 
 td {
-  width: 133px;
+  min-width: 133px;
   height: 133px;
   border: 5px solid var(--color-p1);
   position: relative;
@@ -309,7 +318,7 @@ td:last-child {
 
 #restart-game {
   position: absolute;
-  bottom: 20%;
+  bottom: 150px;
   left: 50%;
   transform: translateX(-50%);
 
@@ -317,7 +326,7 @@ td:last-child {
 
 #change-icons {
   position: absolute;
-  bottom: 10%;
+  bottom: 50px;
   left: 50%;
   transform: translateX(-50%);
 
@@ -336,12 +345,15 @@ td:last-child {
 /************** MEDIA ***************/
 
 @media (max-width: 1024px) {
+
   .choose-player-box {
     width: 370px;
   }
 }
 
 @media (max-width: 834px) {
+
+
   #choose-icon {
     flex-direction: column;
   }
@@ -355,22 +367,37 @@ td:last-child {
     padding: 8px;
     height: 130px;
   }
+
+  #start-new-game {
+    margin-top: 20px;
+  }
 }
 
 @media (max-width: 520px) {
+  #start-content {
+    display: grid;
+    align-items: unset;
+    grid-template-rows: 90vh 10vh;
+  }
+ 
+  #choose-icon {
+    display: block;
+  }
 
   .choose-player-box {
-    width: 330px;
+    width: 100%;
+    height: 50%;
   }
 
   .choose-box {
     padding: 10px;
+    height: 80%;
   }
 
   .icon-box {
-    gap: 10px;
+    gap: 8px;
     padding: 0px;
-    height: 120px;
+    height: 80%;
   }
 
   .scroll-hint {
@@ -378,17 +405,19 @@ td:last-child {
   }
 
   .display-choice {
-    height: 50px;
+    height: 20%;
     padding: 0 20px;
   }
 
   .display-choice img {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
   }
 
   #start-new-game {
-    margin-top: 20px;
+    margin-top: 0px;
+    width: 100%;
+    height: 100%;
   }
 
   #choose-icon {
@@ -410,4 +439,20 @@ td:last-child {
     padding: 20px;
     font-size: 50px;
   }
+
+tr {
+  width: 300px;
+}
+
+  td {
+    width: 100px;
+    height: 100px;
+  }
+
+  .shape {
+    width: 80px;
+    height: 80px;
+  }
+
+
 }

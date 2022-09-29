@@ -36,7 +36,7 @@ function resetGame() {
 /************* HIDE / SHOW SCREENS & ICONS **********************/
 
 function showStartScreen() {
-  document.getElementById('choose-icon').classList.remove('dis-none');
+  document.getElementById('start-content').classList.remove('dis-none');
   document.getElementById('start-new-game').classList.remove('dis-none');
 
 }
@@ -44,7 +44,7 @@ function showStartScreen() {
 function showGameScreen() {
   document.getElementById('player-panel').classList.remove('dis-none');
   document.getElementById('content').classList.remove('dis-none');
-  document.getElementById('choose-icon').classList.add('dis-none');
+  document.getElementById('start-content').classList.add('dis-none');
   document.getElementById('start-new-game').classList.add('dis-none');
 }
 
