@@ -210,7 +210,7 @@ tr {
 }
 
 td {
-  min-width: 133px;
+  width: 133px;
   height: 133px;
   border: 5px solid var(--color-p1);
   position: relative;
@@ -440,6 +440,10 @@ td:last-child {
     font-size: 50px;
   }
 
+  #content {
+    width: 300px;
+  }
+
 tr {
   width: 300px;
 }
@@ -452,6 +456,10 @@ tr {
   .shape {
     width: 80px;
     height: 80px;
+  }
+
+  .horizontal-line {
+    width: 265px;
   }
 
 

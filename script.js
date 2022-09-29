@@ -196,6 +196,7 @@ function checkForWin() {
     winner = fields[2];
     document.getElementById(`line-8`).style.transform = 'rotate(-45deg) scaleX(1.2)';
   }
+  
   if(winner) {
     gameOver = true;
     whoIsWinner();
@@ -203,6 +204,7 @@ function checkForWin() {
     setTimeout(gameOverScreen, 1400);
     setTimeout(newGameScreen, 3500);
   }
+  
 }
 
 function whoIsWinner() {
